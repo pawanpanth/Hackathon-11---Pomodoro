@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useRef, useState} from "react";
 import '../styles/App.css';
-
+let timer;
 const App = () => {
   const [Time, setTime] = useState("25");
   const [Minute, setMinute] = useState(25);
@@ -9,7 +9,7 @@ const App = () => {
   const [Work,setWork] = useState(25);
   const [started,setStarted] = useState(false);
   const [Reset,setReset] = useState(true);
-  let [timer,setTimer] = useState("");
+  //let [timer,setTimer] = useState("");
   //const timer = useRef(null);//refer to the initial state and is access to every other rerenders;
   const startHandler =(evt) => {
 
@@ -21,7 +21,7 @@ const App = () => {
     timer = setInterval(()=>setTimer1(),1000);
     //setTimer(setInterval(()=>setTimer1(),1000));//other way of doing it if timer state is const
     //timer.current = setInterval(()=>setTimer(),1000);//if you are using useref;
-    setTimer(timer);
+    //setTimer(timer);
   }
   let numSeconds = Seconds;
   let numMinutes = Minute;
@@ -54,12 +54,12 @@ const App = () => {
       numMinutes = Break;
       numSeconds = 0;
       setTimer2();
-      return;
+      
     }
   }
   const setTimer2 = () =>{
     timer = setInterval(()=>Timer2(),1000);
-    setTimer(timer);
+    //setTimer(timer);
   }
   const Timer2 =()=>{
     // numSeconds = Seconds;
@@ -89,7 +89,7 @@ const App = () => {
       numMinutes = Work;
       numSeconds = 0;
       Timer1();
-      return;
+      
     }
   }
   const stopHandler = () => {
@@ -112,9 +112,10 @@ const App = () => {
     setSeconds(0);}
     
   }
-  const reset =() =>{
+  const reset =(evt) =>{
+    evt.preventDefault();
     clearInterval(timer);
-    setTimer("");
+    //setTimer("");
     setStarted(false);
     setMinute(25);
     setSeconds(0);
