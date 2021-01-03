@@ -19,6 +19,17 @@ const App = () => {
     Timer1();
   }
   const Timer1 = () => {
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
+      alert("work duration is over");
+      // clearInterval(timer);
+      setMinute(Break);
+      setSeconds(0);
+      numMinutes = Break;
+      numSeconds = 0;
+      setChange(false);
+      setTimer2();
+      return;
+    }
     timer = setInterval(()=>setTimer1(),1000);
     //setTimer(setInterval(()=>setTimer1(),1000));//other way of doing it if timer state is const
     //timer.current = setInterval(()=>setTimer(),1000);//if you are using useref;
@@ -62,7 +73,17 @@ const App = () => {
     }
   }
   const setTimer2 = () =>{
-    
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
+      alert("work duration is over");
+      // clearInterval(timer);
+      setMinute(Break);
+      setSeconds(0);
+      numMinutes = Break;
+      numSeconds = 0;
+      setChange(false);
+      setTimer2();
+      return;
+    }
     timer = setInterval(()=>Timer2(),1000);
     //setTimer(timer);
   }
