@@ -26,8 +26,8 @@ const App = () => {
   let numSeconds = Seconds;
   let numMinutes = Minute;
   const setTimer1 = () =>{
-     numSeconds = Seconds;
-     numMinutes = Minute;
+    //  numSeconds = Seconds;
+    //  numMinutes = Minute;
     if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
       alert("work duration is over");
       clearInterval(timer);
@@ -39,6 +39,7 @@ const App = () => {
       return;
     }
     if(numSeconds === 0){
+      console.log("hello");
       setMinute(numMinutes - 1);
       numMinutes -= 1;
       numSeconds = 60;
@@ -51,6 +52,8 @@ const App = () => {
     setTimer(timer);
   }
   const Timer2 =()=>{
+    // numSeconds = Seconds;
+    //  numMinutes = Minute;
     if(numSeconds === 0 && numMinutes === 0){
       alert("break duration is over");
       clearInterval(timer);
