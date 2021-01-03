@@ -121,7 +121,7 @@ const App = () => {
       <form className="btn" onSubmit={setHandler}>
         <input data-testid='work-duration'  type="Number" onChange={changeWork} value={Work} disabled={started?true:false} required></input>
         <input data-testid='break-duration'  type="Number" onChange={changeBreak} value={Break} disabled={started?true:false} required></input>
-        <button type="submit" disabled={started?true:false}>set</button>
+        <button type="submit" disabled={started?true:false} data-testid='set-btn'>set</button>
       </form>
       
     </div>
