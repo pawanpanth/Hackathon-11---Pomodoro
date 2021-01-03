@@ -82,7 +82,7 @@ const App = () => {
     setSeconds(0);
     setWork(25);
     setBreak(5);
-    
+
 
   }
 
@@ -97,8 +97,8 @@ const App = () => {
         <button data-testid='reset-btn' onClick={reset}> Reset</button>
       </div>
       <div className="btn">
-        <input type="Number" onChange={(evt)=>setWork(evt.target.value)} value={Work} disabled={started?true:false}></input>
-        <input type="Number" onChange={(evt)=>setBreak(evt.target.value)} value={Break} disabled={started?true:false}></input>
+        <input data-testid='work-duration' type="Number" onChange={(evt)=>setWork(evt.target.value)} value={Work} disabled={started?true:false}></input>
+        <input data-testid='break-duration' type="Number" onChange={(evt)=>setBreak(evt.target.value)} value={Break} disabled={started?true:false}></input>
         <button onClick={setHandler} disabled={started?true:false}>set</button>
       </div>
       
