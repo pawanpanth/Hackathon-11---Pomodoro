@@ -26,7 +26,9 @@ const App = () => {
   let numSeconds = Seconds;
   let numMinutes = Minute;
   const setTimer1 = () =>{
-    if(numSeconds === 0 && numMinutes === 0){
+     numSeconds = Seconds;
+     numMinutes = Minute;
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
       alert("work duration is over");
       clearInterval(timer);
       setMinute(Break);
