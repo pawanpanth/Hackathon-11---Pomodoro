@@ -50,7 +50,7 @@ const App = () => {
       setSeconds(0);
       numMinutes = Work;
       numSeconds = 0;
-      setTimer2();
+      setTimer1();
       return;
     }
     if(numSeconds === 0){
