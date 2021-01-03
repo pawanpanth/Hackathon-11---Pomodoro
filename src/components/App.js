@@ -67,11 +67,18 @@ const App = () => {
     clearInterval(timer);
 
   }
-  const setHandler =()=>{
+  const setHandler =(evt)=>{
+    evt.preventDefault();
+    if(Number(Work) === 0  && Number(Break) === 0){
+      setWork(25);
+      setBreak(5);
+     
+    }
+    else{
     setWork(Work);
     setBreak(Break);
     setMinute(Work);
-    setSeconds(0);
+    setSeconds(0);}
     
   }
   const reset =() =>{
@@ -85,7 +92,22 @@ const App = () => {
 
 
   }
-
+  const changeWork =(evt)=>{
+    evt.preventDefault();
+    if(Number(evt.target.value) < 0){
+      setWork("");
+    }else{
+      setWork(evt.target.value);
+    }
+  }
+  const changeBreak =(evt)=>{
+    evt.preventDefault();
+    if(Number(evt.target.value) < 0){
+      setBreak("");
+    }else{
+      setBreak(evt.target.value);
+    }
+  }
   return (
     <div id="main">
       
@@ -96,11 +118,11 @@ const App = () => {
         <button data-testid='stop-btn' onClick={stopHandler} disabled={started?false:true}>stop</button>
         <button data-testid='reset-btn' onClick={reset}> Reset</button>
       </div>
-      <div className="btn">
-        <input data-testid='work-duration' type="Number" onChange={(evt)=>setWork(evt.target.value)} value={Work} disabled={started?true:false}></input>
-        <input data-testid='break-duration' type="Number" onChange={(evt)=>setBreak(evt.target.value)} value={Break} disabled={started?true:false}></input>
-        <button onClick={setHandler} disabled={started?true:false}>set</button>
-      </div>
+      <form className="btn" onSubmit={setHandler}>
+        <input data-testid='work-duration'  type="Number" onChange={changeWork} value={Work} disabled={started?true:false} required></input>
+        <input data-testid='break-duration'  type="Number" onChange={changeBreak} value={Break} disabled={started?true:false} required></input>
+        <button type="submit" disabled={started?true:false}>set</button>
+      </form>
       
     </div>
   )
