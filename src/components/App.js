@@ -69,7 +69,7 @@ const App = () => {
   const Timer2 =()=>{
     // numSeconds = Seconds;
     //  numMinutes = Minute;
-    if(numSeconds === 0 && numMinutes === 0){
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
       alert("break duration is over");
       clearInterval(timer);
       setMinute(Work);
@@ -87,7 +87,7 @@ const App = () => {
     }
     setSeconds(numSeconds-1);
     numSeconds = numSeconds-1; 
-    if(numSeconds === 0 && numMinutes === 0){
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
       alert("break duration is over");
       clearInterval(timer);
       setMinute(Work);
@@ -96,7 +96,7 @@ const App = () => {
       numSeconds = 0;
       setChange(true);
       Timer1();
-      
+      return;
     }
   }
   const stopHandler = () => {
