@@ -4,7 +4,7 @@ import '../styles/App.css';
 const App = () => {
   const [Time, setTime] = useState("25");
   const [Minute, setMinute] = useState(25);
-  const [Seconds, setSeconds] = useState(0);
+  const [Seconds, setSeconds] = useState(5);
   const [Break,setBreak] = useState(5);
   const [Work,setWork] = useState(25);
   const [started,setStarted] = useState(false);
@@ -46,6 +46,16 @@ const App = () => {
     }
     setSeconds(numSeconds-1);
     numSeconds = numSeconds-1;  
+    if(Number(numSeconds) === 0 && Number(numMinutes) === 0){
+      alert("work duration is over");
+      clearInterval(timer);
+      setMinute(Break);
+      setSeconds(0);
+      numMinutes = Break;
+      numSeconds = 0;
+      setTimer2();
+      return;
+    }
   }
   const setTimer2 = () =>{
     timer = setInterval(()=>Timer2(),1000);
@@ -71,6 +81,16 @@ const App = () => {
     }
     setSeconds(numSeconds-1);
     numSeconds = numSeconds-1; 
+    if(numSeconds === 0 && numMinutes === 0){
+      alert("break duration is over");
+      clearInterval(timer);
+      setMinute(Work);
+      setSeconds(0);
+      numMinutes = Work;
+      numSeconds = 0;
+      Timer1();
+      return;
+    }
   }
   const stopHandler = () => {
     // clearInterval(timer.current);
