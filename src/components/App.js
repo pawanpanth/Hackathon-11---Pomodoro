@@ -8,10 +8,16 @@ const App = () => {
   const [Break,setBreak] = useState(5);
   const [Work,setWork] = useState(25);
   const [started,setStarted] = useState(false);
+  const [Reset,setReset] = useState(true);
   let [timer,setTimer] = useState("");
   //const timer = useRef(null);//refer to the initial state and is access to every other rerenders;
   const startHandler =(evt) => {
+
     setStarted(!started);
+    setReset(false);
+    Timer1();
+  }
+  const Timer1 = () => {
     timer = setInterval(()=>setTimer1(),1000);
     //setTimer(setInterval(()=>setTimer1(),1000));//other way of doing it if timer state is const
     //timer.current = setInterval(()=>setTimer(),1000);//if you are using useref;
@@ -50,7 +56,7 @@ const App = () => {
       setSeconds(0);
       numMinutes = Work;
       numSeconds = 0;
-      startHandler();
+      Timer1();
       return;
     }
     if(numSeconds === 0){
@@ -116,7 +122,7 @@ const App = () => {
       <div className="btn">
         <button data-testid='start-btn' onClick={startHandler} disabled={started?true:false}>start</button>
         <button data-testid='stop-btn' onClick={stopHandler} disabled={started?false:true}>stop</button>
-        <button data-testid='reset-btn' onClick={reset}> Reset</button>
+        <button data-testid='reset-btn' onClick={reset} disabled={Reset}> Reset</button>
       </div>
       <form className="btn" onSubmit={setHandler}>
         <input data-testid='work-duration'  type="Number" onChange={changeWork} value={Work} disabled={started?true:false} required></input>
