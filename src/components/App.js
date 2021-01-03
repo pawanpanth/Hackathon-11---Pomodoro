@@ -9,6 +9,7 @@ const App = () => {
   const [Work,setWork] = useState(25);
   const [started,setStarted] = useState(false);
   const [Reset,setReset] = useState(true);
+  const [change, setChange] =useState(true);
   //let [timer,setTimer] = useState("");
   //const timer = useRef(null);//refer to the initial state and is access to every other rerenders;
   const startHandler =(evt) => {
@@ -35,6 +36,7 @@ const App = () => {
       setSeconds(0);
       numMinutes = Break;
       numSeconds = 0;
+      setChange(false);
       setTimer2();
       return;
     }
@@ -53,11 +55,14 @@ const App = () => {
       setSeconds(0);
       numMinutes = Break;
       numSeconds = 0;
+      setChange(false);
       setTimer2();
+      return ;
       
     }
   }
   const setTimer2 = () =>{
+    
     timer = setInterval(()=>Timer2(),1000);
     //setTimer(timer);
   }
@@ -71,6 +76,7 @@ const App = () => {
       setSeconds(0);
       numMinutes = Work;
       numSeconds = 0;
+      setChange(true);
       Timer1();
       return;
     }
@@ -88,6 +94,7 @@ const App = () => {
       setSeconds(0);
       numMinutes = Work;
       numSeconds = 0;
+      setChange(true);
       Timer1();
       
     }
@@ -144,7 +151,7 @@ const App = () => {
     <div id="main">
       
       <h1>{Minute<10?"0"+Minute:Minute}:{Seconds<10?"0"+Seconds:Seconds}</h1>
-      <h1>Work-Time</h1>
+      {change?<h1>Work-Time</h1>:<h1>Break-Time</h1>}
       <div className="btn">
         <button data-testid='start-btn' onClick={startHandler} disabled={started?true:false}>start</button>
         <button data-testid='stop-btn' onClick={stopHandler} disabled={started?false:true}>stop</button>
