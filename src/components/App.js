@@ -28,8 +28,9 @@ const App = () => {
       numSeconds = 0;
       setChange(false);
       setTimer2();
-      return;
+      //return;
     }
+    else
     timer = setInterval(()=>setTimer1(),1000);
     //setTimer(setInterval(()=>setTimer1(),1000));//other way of doing it if timer state is const
     //timer.current = setInterval(()=>setTimer(),1000);//if you are using useref;
@@ -84,6 +85,7 @@ const App = () => {
       setTimer2();
       return;
     }
+    else
     timer = setInterval(()=>Timer2(),1000);
     //setTimer(timer);
   }
