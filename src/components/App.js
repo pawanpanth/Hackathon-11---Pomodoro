@@ -112,7 +112,7 @@ const App = () => {
     <div id="main">
       
       <h1>{Minute<10?"0"+Minute:Minute}:{Seconds<10?"0"+Seconds:Seconds}</h1>
-      <h1>Work Time</h1>
+      <h1>Work-Time</h1>
       <div className="btn">
         <button data-testid='start-btn' onClick={startHandler} disabled={started?true:false}>start</button>
         <button data-testid='stop-btn' onClick={stopHandler} disabled={started?false:true}>stop</button>
