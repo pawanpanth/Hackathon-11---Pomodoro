@@ -3,7 +3,7 @@ import "../styles/App.css";
 const App = () => {
   const [Minute, setMinute] = useState(25);
   const [Seconds, setSeconds] = useState(0);
-  const [Break, setBreak] = useState(1);
+  const [Break, setBreak] = useState(5);
   const [Work, setWork] = useState(25);
   const [started, setStarted] = useState(false);
   const [Reset, setReset] = useState(true);
