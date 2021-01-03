@@ -4,7 +4,7 @@ import '../styles/App.css';
 const App = () => {
   const [Time, setTime] = useState("25");
   const [Minute, setMinute] = useState(25);
-  const [Seconds, setSeconds] = useState(5);
+  const [Seconds, setSeconds] = useState(0);
   const [Break,setBreak] = useState(5);
   const [Work,setWork] = useState(25);
   const [started,setStarted] = useState(false);
